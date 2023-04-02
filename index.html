@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recette by Cange's</title>
+    <link rel="stylesheet" href="Ressources/index.css">
+    <link rel="icon" type="image/x-icon" href="./Images/Donut.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,1,200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=News+Cycle&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="NavBar">
+            <a href="#"><span class="material-symbols-outlined">
+                cookie
+                </span></a>
+            <a href="#">RECETTES</a>
+            <a href="#">A PROPOS</a>
+        </div>
+    </header>
+    <main>
+        <div class="ReceipeAdd" id="ReceipeAdd">
+            <form action="" id="AddReceipeForm">
+                <label>Nom de la recette:<input type="text" name="" id="Name" required></label><br>
+                <label>Temps de préparation: <input type="number" id="PrepTemps" required> minutes</label><br>
+                <label>Temps de cuisson: <input type="number" id="Cuisson" required> minutes</label><br>
+                <label>Difficulté<select name="difficultylevel" id="difficultyradio">
+                    <option value="Facile">Facile</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Difficile">Difficile</option>
+                </select></label>
+                <fieldset class="Ingredient" id="Ingredient">
+                    <label>Ajoute les ingrédients <br><input type="number" name="Quantity" id="Quantity"></label>
+                    <label>
+                        <select name="measure" id="measure">
+                            <option value="g">grammes</option>
+                            <option value="mL">mL</option>
+                            <option value=" ">Morceaux/Pièces...</option>
+                        </select>
+                    </label>
+                    <label><input type="text" id="IngredientName"></label>
+                    <button id="AddIngredientBtn">Ajouter Ingrédient</button>
+                </fieldset>
+                <ul id="IngredientList"></ul>
+                <fieldset id="Steps">
+                <label>Ajoute les étapes <input type="text" id="StepText"></label>
+                <button id="AddStepsBtn">Ajouter Étape</button>
+                </fieldset>
+                <ul id="StepsList"></ul>
+                <br>
+                <button id="AddReceipebtn" type="submit">Ajouter Recette!</button>
+            </form>
+        </div>
+
+
+        <div class="RecettesGrid" id="RecettesGrid">
+            <div class="RecetteDiv" id="RecetteDiv">
+                <h1>Nom de la Recette</h1>
+                <div>
+                    <p>Difficulté: Middle</p>
+                    <p>Temps de préparation: 20min</p>
+                    <p>Temps de cuisson: 30min</p>
+                    <p>Temps Total: 50min</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCE6PzwPwQMd-5aWL9nYTLSwLOnPnL1vGU",
+            authDomain: "recettes-764ac.firebaseapp.com",
+            projectId: "recettes-764ac",
+            storageBucket: "recettes-764ac.appspot.com",
+            messagingSenderId: "758971829558",
+            appId: "1:758971829558:web:1ed07c3a8954a5f04ff797",
+            measurementId: "G-TK6S3J3GMB"
+        }
+        firebase.initializeApp(firebaseConfig)
+    </script>
+
+<script src="./JS/script.js"></script>
+
+</body>
+</html>

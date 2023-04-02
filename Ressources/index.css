@@ -1,0 +1,284 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:root {
+    --kaki:#324131;
+    --beige:#dfd9d6;
+    --terracota: #9b6039;
+    --darkbeige: #8e8c7c;
+    --yellowish: #d1b186;
+    --beigeyellow: #c3b7a5;
+    --purpleish : #7d6a6d;
+    --lightpurple: #ac9a9d; 
+    --terra: #b08035; 
+    --bg-color: #3d2718;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+body, html {
+    background-color: var(--bg-color);
+    color: var(--beigeyellow);
+    font-family: 'News Cycle';
+    font-size: 20px;
+}
+body a {
+    color: inherit;
+}
+
+header {
+    background-color: var(--beigeyellow);
+    height: 80px;
+    color: var(--bg-color);
+}
+
+.NavBar {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+}
+
+.NavBar a{
+    display:inline-block;
+    padding: 30px 40px;
+}
+
+.NavBar a:first-child {
+    padding: 0;
+}
+
+.NavBar span {
+    padding: 0 20px;
+}
+
+.NavBar a span {
+    font-size: 50px;
+}
+
+.NavBar a:hover {
+    background-color: var(--bg-color);
+    color: var(--beigeyellow);
+}
+
+.NavBar a:first-child:hover {
+    background-color: var(--beigeyellow);
+    color: var(--bg-color);
+}
+main {
+    margin: 70px 0;
+}
+
+.ReceipeAdd {
+    background-color: var(--beigeyellow);
+    color: var(--bg-color);
+    width: 500px;
+    margin: 40px auto; 
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.ReceipeAdd label {
+    margin: 20px 0;
+}
+
+.ReceipeAdd input{
+    padding: 5px;
+    background-color:#aca192a7;
+    border: none;
+    border-radius: 15px;
+    margin: 20px 0;
+    width: 80%;
+    box-shadow: 1px 5px 10px -5px var(--darkbeige);
+    color: var(--bg-color);
+    font-family: inherit;
+}
+
+.ReceipeAdd input:focus {
+    outline: none;
+    color: var(--bg-color);
+}
+
+.ReceipeAdd fieldset {
+    margin: 20px 0;
+}
+legend {
+    margin: 10px 0;
+}
+
+.ReceipeAdd button {
+    margin: 20px auto 0px 0px;
+    background-color: var(--bg-color);
+    color: var(--beigeyellow);
+    font-family: inherit;
+    font-size: .8rem;
+    padding: 10px 20px;
+    border: 1px solid var(--bg-color);
+    border-radius: 10px;
+}
+
+.ReceipeAdd button:hover {
+    background-color: var(--beigeyellow);
+    color: var(--bg-color);
+    cursor: pointer;
+}
+
+#Quantity {
+    width: 50px;
+}
+
+#measure, #difficultyradio {
+    width: 100px;
+    background-color: #aca192a7;
+    font-size: 0.7rem;
+    font-family: inherit;
+    color: var(--bg-color);
+    padding: 0 8px 3px;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    box-shadow: 1px 5px 10px -5px var(--darkbeige);
+}
+
+#difficultyradio {
+    margin: 0 20px;
+}
+#IngredientName {
+    width: 230px !important;
+}
+
+#IngredientList {
+    font-size: .7rem;
+    margin-top: 20px;
+    display: flex;
+    font-style: italic;
+}
+
+#IngredientList li {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #aca192a7;
+    margin: 0 5px;
+}
+
+#IngredientList li:hover {
+    border: 2px solid var(--terracota);
+    cursor: pointer;
+}
+
+#StepsList {
+    margin: 10px 0 ;
+    font-size: .8rem;
+    list-style: decimal;
+}
+
+#StepsList li {
+    padding: 5px 0;
+}
+
+#StepsList li:hover {
+    border: 2px solid var(--terracota);
+    cursor: pointer;
+}
+
+#AddReceipebtn {
+    background-color: var(--terracota);
+    font-size: 1rem;
+    text-decoration: underline;
+    border-radius: 5px;
+    border: none;
+    padding: 20px;
+}
+
+#AddReceipebtn:hover {
+    padding: 25px;
+}
+.RecettesGrid {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: auto;
+    gap: 50px;
+    width: 80%
+}
+
+
+.RecetteDiv {
+    background-color: var(--terracota);
+    margin: 20px 0;
+    color: var(--beigeyellow);
+    padding: 40px 20px;
+    align-items: center;
+    border-radius: 10px;
+    font-size: .9rem;
+}
+
+.RecetteDiv h1 {
+    background-color: #b26a39a2;
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 20px 10px 20px 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.RecetteDiv p {
+    text-align: center;
+}
+
+.RecetteDiv ol {
+    list-style: decimal;
+    padding-left: 50px;
+}
+
+.RecetteDiv ul {
+    padding-left: 60px;
+}
