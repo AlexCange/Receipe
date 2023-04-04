@@ -95,9 +95,6 @@ header {
     padding: 0;
 }
 
-.NavBar span {
-    padding: 0 20px;
-}
 
 .NavBar a span {
     font-size: 50px;
@@ -112,6 +109,17 @@ header {
     background-color: var(--beigeyellow);
     color: var(--bg-color);
 }
+
+#SearchBarInput {
+    background-color:#aca192a7;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 1px 5px 10px -5px var(--darkbeige);
+    color: var(--bg-color);
+    font-family: inherit;
+}
+
 main {
     margin: 70px 0;
 }
@@ -129,7 +137,7 @@ main {
     margin: 20px 0;
 }
 
-.ReceipeAdd input{
+.ReceipeAdd input {
     padding: 5px;
     background-color:#aca192a7;
     border: none;
@@ -242,12 +250,38 @@ legend {
 }
 .RecettesGrid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     margin: auto;
     gap: 50px;
     width: 80%
 }
 
+@media only screen and (max-width:425px){
+    .RecettesGrid {
+        grid-template-columns: auto;
+        gap: 10px;
+        width: 90%;
+    }
+    .ReceipeAdd {
+        width: 70%;
+        padding: 30px 20px;
+    }
+    .ReceipeAdd label {
+        margin: 0;
+    }
+    .ReceipeAdd input {
+        width: 70%
+    }
+    #Quantity {
+        width:30px;
+    }
+    #IngredientName {
+        width: 30% !important;
+    }
+    #StepText {
+        width: 90%;
+    }
+}
 
 .RecetteDiv {
     background-color: var(--terracota);
@@ -281,4 +315,51 @@ legend {
 
 .RecetteDiv ul {
     padding-left: 60px;
+}
+
+.TagsLiItem {
+    display: inline-flex;
+    padding: 10px;
+    margin: 0 5px 10px;
+    font-size: 0.8rem !important;
+    background-color: var(--beigeyellow);
+    color: var(--terracota);
+    align-items: center;
+    border-radius: 15px;
+    font-style: italic;
+}
+
+.TagsLiItem span {
+    padding: 0 0 0 10px !important;
+    font-size:1.3rem !important;
+    FILL:0;
+}
+
+#SearchBar {
+
+}
+
+#SearchBarInput{
+    position: absolute;
+}
+
+#AllReceipeName {
+    background-color: var(--yellowish);
+    color: var(--bg-color);
+    text-align: left;
+    display: none;
+    position: absolute;
+    padding: 10px;
+    border-radius: 0px 15px 5px 15px;
+    font-size: .7rem;
+    max-height: 100px;
+    overflow: scroll;
+}
+
+#SearchBtn {
+    position:relative;
+    background-color: #32413100;
+    border: none;
+    right: -110px;
+    bottom: -4px;
 }

@@ -7,7 +7,7 @@
     <title>Recette by Cange's</title>
     <link rel="stylesheet" href="Ressources/index.css">
     <link rel="icon" type="image/x-icon" href="./Images/Donut.jpg">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,1,200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,0,200" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
@@ -22,6 +22,15 @@
                 </span></a>
             <a href="#">RECETTES</a>
             <a href="#">A PROPOS</a>
+            <div class="SearchBar">
+                <form action="" id="SearchForm">
+            <input type="text" name="SearchBarInput" id="SearchBarInput" placeholder="Rechercher..." onkeyup="search_receipe()" minlength="3">
+            <button id="SearchBtn" class="SearchBtn" type="submit"><span class="material-symbols-outlined">
+                search
+                </span></button></form>
+            <ol id="AllReceipeName">
+
+            </ol></div>
         </div>
     </header>
     <main>
@@ -54,20 +63,17 @@
                 </fieldset>
                 <ul id="StepsList"></ul>
                 <br>
+                <label>Donne ton nom si jamais quelqu'un a une question: <input type="text" id="Person"></label><br>
+                <label>Quel Genre de recettes?<input type="text" id="Kind" placeholder="Par exemple: 'Végétarien', 'Vegan',..."></label>
+                <button id="AggTag">Ajouter Tag</button>
+                <ul id="TagList"></ul><br>
+
                 <button id="AddReceipebtn" type="submit">Ajouter Recette!</button>
             </form>
         </div>
 
 
         <div class="RecettesGrid" id="RecettesGrid">
-            <div class="RecetteDiv" id="RecetteDiv">
-                <h1>Nom de la Recette</h1>
-                <div>
-                    <p>Difficulté: Middle</p>
-                    <p>Temps de préparation: 20min</p>
-                    <p>Temps de cuisson: 30min</p>
-                    <p>Temps Total: 50min</p>
-                </div>
             </div>
         </div>
     </main>
