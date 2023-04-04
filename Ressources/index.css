@@ -86,13 +86,8 @@ header {
     text-align: center;
 }
 
-.NavBar a{
-    display:inline-block;
-    padding: 30px 40px;
-}
-
 .NavBar a:first-child {
-    padding: 0;
+    padding: 10px 50px;
 }
 
 
@@ -284,14 +279,7 @@ legend {
     .NavBar {
         height: inherit;
     }
-    .SearchBar {
-        position: absolute;
-        top: 90px;
-        left: 5px;
-    }
-    #SearchBarInput {
-        background-color: var(--beigeyellow);
-    }
+    
 }
 
 .RecetteDiv {
