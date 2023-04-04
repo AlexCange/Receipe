@@ -23,7 +23,7 @@
             <a href="#">RECETTES</a>
             <a href="#">A PROPOS</a>
             <div class="SearchBar">
-                <form action="" id="SearchForm">
+                <form action="" id="SearchForm" autocomplete="off">
             <input type="text" name="SearchBarInput" id="SearchBarInput" placeholder="Rechercher..." onkeyup="search_receipe()" minlength="3">
             <button id="SearchBtn" class="SearchBtn" type="submit"><span class="material-symbols-outlined">
                 search
@@ -35,7 +35,7 @@
     </header>
     <main>
         <div class="ReceipeAdd" id="ReceipeAdd">
-            <form action="" id="AddReceipeForm">
+            <form action="" id="AddReceipeForm" autocomplete="off">
                 <label>Nom de la recette:<input type="text" name="" id="Name" required></label><br>
                 <label>Temps de préparation: <input type="number" id="PrepTemps" required> minutes</label><br>
                 <label>Temps de cuisson: <input type="number" id="Cuisson" required> minutes</label><br>
