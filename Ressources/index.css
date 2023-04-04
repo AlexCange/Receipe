@@ -281,6 +281,17 @@ legend {
     #StepText {
         width: 90%;
     }
+    .NavBar {
+        height: inherit;
+    }
+    .SearchBar {
+        position: absolute;
+        top: 90px;
+        left: 5px;
+    }
+    #SearchBarInput {
+        background-color: var(--beigeyellow);
+    }
 }
 
 .RecetteDiv {
