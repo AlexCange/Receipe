@@ -111,7 +111,7 @@ const createReceipeDiv = (receipe) => {
     })
 
     Name.textContent = receipe.Name
-    Person.innerHTML = `Made by: ${receipe.Person} <br><br>`
+    Person.innerHTML = `Recette donnée par: ${receipe.Person} <br><br>`
     Difficulté.textContent = receipe.Difficulté
     PrepTemps.textContent = `Préparation: ${receipe.PrepTemps}min`
     Cuisson.textContent = `Cuisson: ${receipe.Cuisson}min`
