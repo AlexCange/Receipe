@@ -28,7 +28,12 @@
                 </span></button></form>
             <ol id="AllReceipeName">
 
-            </ol></div>
+            </ol>
+            <div id="ErrorMsgSearch">
+                <p>Impossible d'aller directement à la recette, essaye plus tard ou trouve la toi-même. Désolée!</p>
+            </div>
+            </div>
+            
         </div>
     </header>
     <main>
@@ -40,7 +45,13 @@
                 <label>Difficulté<select name="difficultylevel" id="difficultyradio">
                     <option value="Facile">Facile</option>
                     <option value="Moyen">Moyen</option>
-                    <option value="Difficile">Difficile</option>
+                    <option value="Difficile">Difficile</option><br>
+                </select></label><br><br>
+                <label>Pour combien de parts? <br><input type="number" id="Part"><select id="PartDropdown">
+                    <option value="Part(s)">Part(s)</option>
+                    <option value="Plat(s)">Plat(s)</option>
+                    <option value="Verre(s)">Verre(s)</option>
+
                 </select></label>
                 <fieldset class="Ingredient" id="Ingredient">
                     <label>Ajoute les ingrédients <br><input type="number" name="Quantity" id="Quantity"></label>
@@ -62,7 +73,7 @@
                 <ul id="StepsList"></ul>
                 <br>
                 <label>Donne ton nom si jamais quelqu'un a une question: <input type="text" id="Person"></label><br>
-                <label>Quel Genre de recettes?<input type="text" id="Kind" placeholder="Par exemple: 'Végétarien', 'Vegan',..."></label>
+                <label>Quel Genre de recette?<input type="text" id="Kind" placeholder="Par exemple: 'Végétarien', 'Vegan',..."></label>
                 <button id="AggTag">Ajouter Tag</button>
                 <ul id="TagList"></ul><br>
 

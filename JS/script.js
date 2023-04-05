@@ -11,7 +11,8 @@ class Receipe {
         Préparation = [],
         Cuisson = 1,
         PrepTemps = 1,
-        Person = 'Unknown'
+        Person = 'Unknown',
+        Parts = ' '
     ) {
         this.Name = Name
         this.Tags = Tags
@@ -21,6 +22,7 @@ class Receipe {
         this.Cuisson = Cuisson
         this.PrepTemps = PrepTemps
         this.Person = Person
+        this.Parts = Parts
     }
 }
 // RECEIPE BOOK
@@ -78,6 +80,7 @@ const createReceipeDiv = (receipe) => {
     let PrepTemps = document.createElement('p')
     let Cuisson = document.createElement('p')
     let TempTotal = document.createElement('p')
+    let Parts = document.createElement('p')
 
     let IngListHeader = document.createElement('h1')
     IngListHeader.innerText = 'Ingrédients'
@@ -117,12 +120,16 @@ const createReceipeDiv = (receipe) => {
     Cuisson.textContent = `Cuisson: ${receipe.Cuisson}min`
     TempTotalnumber = parseInt(receipe.PrepTemps) + parseInt(receipe.Cuisson)
     TempTotal.textContent = `Temps Total: ${TempTotalnumber}min`
+    Parts.textContent = `Pour ${receipe.Parts}: `
+    Parts.classList.add('Part')
 
+    InfoReceipe.appendChild(Parts)
     InfoReceipe.appendChild(Person)
     InfoReceipe.appendChild(Difficulté)
     InfoReceipe.appendChild(PrepTemps)
     InfoReceipe.appendChild(Cuisson)
     InfoReceipe.appendChild(TempTotal)
+    
 
     ReceipeDiv.appendChild(Name)
 
@@ -189,6 +196,7 @@ const getReceipebyInput = () => {
     const Person = document.getElementById('Person').value
     const Cuisson = document.getElementById('Cuisson').value
     const TempTotal = parseInt(PrepTemps) + parseInt(Cuisson)
+    const Parts = `${document.getElementById('Part').value} ${document.getElementById('PartDropdown')}`
     const Difficulté = document.getElementById('difficultyradio').value
     const IngUL = document.getElementById('IngredientList')
     const StepUL = document.getElementById('StepsList')
@@ -207,7 +215,7 @@ const getReceipebyInput = () => {
     Array.from(StepUL.childNodes).forEach(step => {
         Préparation.push(step.innerText)
     })
-    return new Receipe(Name, Tags, Difficulté, Ingredients, Préparation, Cuisson, PrepTemps, Person)
+    return new Receipe(Name, Tags, Difficulté, Ingredients, Préparation, Cuisson, PrepTemps, Person, Parts)
 }
 
 
@@ -267,7 +275,8 @@ const docsToBooks = (docs) => {
         doc.data().Préparation,
         doc.data().Cuisson,
         doc.data().PrepTemps, 
-        doc.data().Person
+        doc.data().Person, 
+        doc.data().Parts
         )
     })
 }
@@ -282,7 +291,8 @@ const JSONToBook = (receipe) => {
         receipe.Préparation, 
         receipe.Cuisson, 
         receipe.PrepTemps, 
-        receipe.Person)
+        receipe.Person,
+        receipe.Parts)
 }
 
 
@@ -296,6 +306,7 @@ const bookToDoc = (receipe) => {
     Cuisson: receipe.Cuisson,
     PrepTemps: receipe.PrepTemps,
     Person: receipe.Person,
+    Parts: receipe.Parts,
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     }
 }
@@ -335,13 +346,8 @@ setTimeout(() => {
     RecetteDivs.forEach(item => {
         LiReceipes.push(item.firstChild.innerHTML);
         RecetteLi = document.createElement('li')
-        Recettea = document.createElement('a')
-        Recettea.setAttribute('class', 'RecetteNameA')
-        Recettea.setAttribute('href', '#')
-        Recettea.setAttribute('onclick', 'GetName(this)')
         RecetteLi.setAttribute('class', 'RecetteNameLI')
         RecetteLi.textContent = item.firstChild.innerHTML
-        RecetteLi.appendChild(Recettea)
         AllReceipeNameOL.appendChild(RecetteLi) })
 }, 2000)
 
@@ -356,8 +362,16 @@ SearchForm.addEventListener('submit', (e) => {
         }
     })
     const div = document.getElementById(finalre)
-    div.scrollIntoView({behavior:"smooth"})
-    SearchForm.reset()
+    try {
+        div.scrollIntoView({behavior:"smooth"})
+        SearchForm.reset()
+    } catch (e) {
+        document.getElementById('ErrorMsgSearch').style.display = 'block'
+        setTimeout(() => {
+            document.getElementById('ErrorMsgSearch').style.display = 'none'
+        }, 4000)
+    }
+    
 })
 
 function GetName() {

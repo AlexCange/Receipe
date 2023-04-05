@@ -48,25 +48,35 @@ table {
 }
 
 :root {
-    --kaki:#324131;
     --beige:#dfd9d6;
-    --terracota: #9b6039;
-    --darkbeige: #8e8c7c;
-    --yellowish: #d1b186;
-    --beigeyellow: #c3b7a5;
-    --purpleish : #7d6a6d;
-    --lightpurple: #ac9a9d; 
+    --RecetteBG: #3c4b52;
+    --input: #5c747c7a;
+    --H1BG: #4b6571;
+    --box-color: #bad8efbc;
     --terra: #b08035; 
-    --bg-color: #3d2718;
+    --bg-color: #5c747cb4;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--bg-color);
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--bg-color);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--bg-color);
+}
 body, html {
     background-color: var(--bg-color);
-    color: var(--beigeyellow);
+    color: var(--box-color);
     font-family: 'News Cycle';
     font-size: 20px;
 }
@@ -75,7 +85,7 @@ body a {
 }
 
 header {
-    background-color: var(--beigeyellow);
+    background-color: var(--box-color);
     height: 80px;
     color: var(--bg-color);
 }
@@ -97,16 +107,16 @@ header {
 
 .NavBar a:hover {
     background-color: var(--bg-color);
-    color: var(--beigeyellow);
+    color: var(--box-color);
 }
 
 .NavBar a:first-child:hover {
-    background-color: var(--beigeyellow);
+    background-color: var(--box-color);
     color: var(--bg-color);
 }
 
 #SearchBarInput {
-    background-color:#aca192a7;
+    background-color: var(--input);
     border: none;
     padding: 5px 10px;
     border-radius: 15px;
@@ -120,7 +130,7 @@ main {
 }
 
 .ReceipeAdd {
-    background-color: var(--beigeyellow);
+    background-color: var(--box-color);
     color: var(--bg-color);
     width: 500px;
     margin: 40px auto; 
@@ -134,7 +144,7 @@ main {
 
 .ReceipeAdd input {
     padding: 5px;
-    background-color:#aca192a7;
+    background-color: var(--input);
     border: none;
     border-radius: 15px;
     margin: 20px 0;
@@ -144,7 +154,7 @@ main {
     font-family: inherit;
 }
 
-.ReceipeAdd input:focus {
+.ReceipeAdd input:focus, #SearchBarInput {
     outline: none;
     color: var(--bg-color);
 }
@@ -159,7 +169,7 @@ legend {
 .ReceipeAdd button {
     margin: 20px auto 0px 0px;
     background-color: var(--bg-color);
-    color: var(--beigeyellow);
+    color: var(--box-color);
     font-family: inherit;
     font-size: .8rem;
     padding: 10px 20px;
@@ -168,26 +178,31 @@ legend {
 }
 
 .ReceipeAdd button:hover {
-    background-color: var(--beigeyellow);
+    background-color: var(--box-color);
     color: var(--bg-color);
     cursor: pointer;
 }
 
-#Quantity {
+#Quantity, #Part {
     width: 50px;
 }
 
-#measure, #difficultyradio {
+#Part {
+    margin-right: 5px;
+}
+
+#measure, #difficultyradio, #PartDropdown {
     width: 100px;
-    background-color: #aca192a7;
+    background-color: var(--input);
     font-size: 0.7rem;
     font-family: inherit;
-    color: var(--bg-color);
+    color: #3c4b52c6;
     padding: 0 8px 3px;
     border: none;
     border-radius: 5px;
     align-items: center;
     box-shadow: 1px 5px 10px -5px var(--darkbeige);
+    outline: none;
 }
 
 #difficultyradio {
@@ -202,17 +217,18 @@ legend {
     margin-top: 20px;
     display: flex;
     font-style: italic;
+    overflow: scroll;
 }
 
 #IngredientList li {
     padding: 10px;
     border-radius: 5px;
-    background-color: #aca192a7;
+    background-color: var(--input);
     margin: 0 5px;
 }
 
 #IngredientList li:hover {
-    border: 2px solid var(--terracota);
+    border: 2px solid var(--RecetteBG);
     cursor: pointer;
 }
 
@@ -227,27 +243,29 @@ legend {
 }
 
 #StepsList li:hover {
-    border: 2px solid var(--terracota);
+    border: 2px solid var(--RecetteBG);
     cursor: pointer;
 }
 
 #AddReceipebtn {
-    background-color: var(--terracota);
+    background-color: var(--RecetteBG);
     font-size: 1rem;
-    text-decoration: underline;
     border-radius: 5px;
     border: none;
     padding: 20px;
 }
 
 #AddReceipebtn:hover {
-    padding: 25px;
+    box-shadow: 3px 3px 10px 0px var(--bg-color);
+    background-color: var(--box-color)
 }
+
 .RecettesGrid {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: auto;
-    gap: 50px;
+    column-gap: 3%;
+    row-gap: 5px;
     width: 80%
 }
 
@@ -283,20 +301,20 @@ legend {
 }
 
 .RecetteDiv {
-    background-color: var(--terracota);
+    background-color: var(--RecetteBG);
     margin: 20px 0;
-    color: var(--beigeyellow);
-    padding: 40px 20px;
+    color: var(--box-color);
+    padding: 20px 20px;
     align-items: center;
     border-radius: 10px;
     font-size: .9rem;
 }
 
 .RecetteDiv h1 {
-    background-color: #b26a39a2;
+    background-color: var(--H1BG);
     text-align: center;
     font-size: 1.3rem;
-    margin: 20px 10px 20px 10px;
+    margin: 20px 20px 20px 20px;
     font-weight: bold;
     text-transform: uppercase;
     padding: 15px;
@@ -310,6 +328,13 @@ legend {
 .RecetteDiv ol {
     list-style: decimal;
     padding-left: 50px;
+    text-align: justify;
+}
+.RecetteDiv li {
+    padding-bottom: 10px;
+}
+.RecetteDiv li::marker {
+    font-size: 0.9em;
 }
 
 .RecetteDiv ul {
@@ -321,8 +346,8 @@ legend {
     padding: 10px;
     margin: 0 5px 10px;
     font-size: 0.8rem !important;
-    background-color: var(--beigeyellow);
-    color: var(--terracota);
+    background-color: var(--box-color);
+    color: var(--RecetteBG);
     align-items: center;
     border-radius: 15px;
     font-style: italic;
@@ -343,7 +368,7 @@ legend {
 }
 
 #AllReceipeName {
-    background-color: var(--yellowish);
+    background-color: var(--box-color);
     color: var(--bg-color);
     text-align: left;
     display: none;
@@ -355,10 +380,28 @@ legend {
     overflow: scroll;
 }
 
+#ErrorMsgSearch {
+    background-color: rgba(223, 150, 150, 0.978);
+    padding: 15px;
+    color: rgb(85, 6, 6);
+    width: 25%;
+    position: absolute;
+    text-align: left;
+    border-radius: 15px;
+    font-size: .7rem;
+    font-style: italic;
+    display: none;
+    transition: .5s linear;
+}
 #SearchBtn {
     position:relative;
     background-color: #32413100;
     border: none;
     right: -110px;
     bottom: -4px;
+}
+
+.Part {
+    font-style: italic;
+    font-size: .7rem;
 }
